@@ -39,7 +39,7 @@ class CloudflareApiActions:
     """Api's function which returns the DNS records of the zone"""
 		path = "zones/"+self.zone_identifier+"/dns_records"
 		response = self.api.request("GET", path)
-		dnsRecords = self._analyzeResponse(response.json()) #lista di dizionari, ogniuno dei quali rappresenta una voce dns
+		dnsRecords = self._analyzeResponse(response.json()) #dictionary list, each of which represents one dns field
 		return dnsRecords
 	def patchDNSRecord(self, dnsIdentifier, type, name, content, ttl, proxied=None):
     """Api's function which updates a given DNS record"""
